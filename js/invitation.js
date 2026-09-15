@@ -520,7 +520,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "13": "Bé Quỳnh",
         "14": "Quốc Cường",
         "15": "Anh Hoàng",
-        "16": "Bé Hoàng Diệu"
+        "16": "Bé Hoàng Diệu",
+        "17": "Bé Trà Trà"
 
     };
 
