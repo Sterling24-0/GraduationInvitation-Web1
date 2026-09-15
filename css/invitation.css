@@ -1,0 +1,2713 @@
+﻿:root {
+    --ivory: #f8f6f1;
+    --champagne: #c6aa78;
+    --blue-gray: #7c8790;
+    --dark: #303438;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--dark);
+    font-family: 'Montserrat', sans-serif;
+}
+/* =========================================================
+   OPENING — BLUE MIST INVITATION
+   ========================================================= */
+
+#opening-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient( circle at 20% 20%, rgba(169, 192, 204, .25), transparent 35% ), radial-gradient( circle at 80% 75%, rgba(120, 152, 170, .18), transparent 35% ), #f4f5f2;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+
+    #opening-screen.hide {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+
+    /* ---------------------------------------------------------
+   MẢNG MÀU LOANG
+   --------------------------------------------------------- */
+
+    #opening-screen::before {
+        content: "";
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        top: -350px;
+        right: -300px;
+        border-radius: 50%;
+        background: radial-gradient( circle, rgba(120, 152, 170, .18), transparent 68% );
+        filter: blur(25px);
+    }
+
+
+    #opening-screen::after {
+        content: "";
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        bottom: -300px;
+        left: -250px;
+        border-radius: 50%;
+        background: radial-gradient( circle, rgba(169, 192, 204, .22), transparent 68% );
+        filter: blur(25px);
+    }
+
+
+/* ---------------------------------------------------------
+   KHUNG THIỆP
+   --------------------------------------------------------- */
+
+.opening-content {
+    position: relative;
+    width: min(620px, calc(100% - 50px));
+    padding: 90px 50px;
+    text-align: center;
+    background: linear-gradient( 135deg, rgba(255,255,255,.75), rgba(240,245,246,.55) );
+    border: 1px solid rgba(82,111,130,.25);
+    box-shadow: 0 30px 100px rgba(61,82,94,.13);
+    backdrop-filter: blur(8px);
+}
+
+
+    /* ---------------------------------------------------------
+   KHUNG GÓC
+   --------------------------------------------------------- */
+
+    .opening-content::before {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        width: 65px;
+        height: 65px;
+        border-top: 1px solid var(--blue);
+        border-left: 1px solid var(--blue);
+        opacity: .7;
+    }
+
+
+    .opening-content::after {
+        content: "";
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: 65px;
+        height: 65px;
+        border-right: 1px solid var(--blue);
+        border-bottom: 1px solid var(--blue);
+        opacity: .7;
+    }
+
+
+/* ---------------------------------------------------------
+   CHỮ
+   --------------------------------------------------------- */
+
+.opening-subtitle {
+    margin-bottom: 24px;
+    color: var(--blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+
+.opening-name {
+    color: var(--blue-deep);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 11vw, 105px);
+    font-weight: 400;
+    line-height: .85;
+    letter-spacing: 1px;
+}
+
+
+.opening-line {
+    width: 55px;
+    height: 1px;
+    margin: 30px auto;
+    background: linear-gradient( 90deg, transparent, var(--blue), transparent );
+}
+
+
+.opening-year {
+    margin-bottom: 42px;
+    color: var(--ink-soft);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 7px;
+}
+
+
+/* ---------------------------------------------------------
+   NÚT MỞ THIỆP
+   --------------------------------------------------------- */
+
+.open-button {
+    position: relative;
+    padding: 16px 38px;
+    border: 1px solid var(--blue);
+    background: transparent;
+    color: var(--blue-deep);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color .4s ease, transform .4s ease, background .4s ease;
+}
+
+
+    .open-button::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--blue-deep);
+        transform: translateY(100%);
+        transition: transform .45s ease;
+        z-index: -1;
+    }
+
+
+    .open-button:hover {
+        color: white;
+        transform: translateY(-2px);
+    }
+
+
+        .open-button:hover::before {
+            transform: translateY(0);
+        }
+
+
+/* ---------------------------------------------------------
+   ANIMATION
+   --------------------------------------------------------- */
+
+.opening-subtitle,
+.opening-name,
+.opening-line,
+.opening-year,
+.open-button {
+    animation: openingElegantFade 1.2s cubic-bezier(.22,.61,.36,1) both;
+}
+
+
+.opening-name {
+    animation-delay: .15s;
+}
+
+.opening-line {
+    animation-delay: .3s;
+}
+
+.opening-year {
+    animation-delay: .45s;
+}
+
+.open-button {
+    animation-delay: .6s;
+}
+
+
+@keyframes openingElegantFade {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .opening-content {
+        width: calc(100% - 36px);
+        padding: 70px 25px;
+    }
+
+        .opening-content::before,
+        .opening-content::after {
+            width: 42px;
+            height: 42px;
+        }
+
+    .opening-subtitle {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .opening-name {
+        font-size: 64px;
+    }
+
+    .opening-year {
+        font-size: 9px;
+        letter-spacing: 5px;
+    }
+
+    .open-button {
+        padding: 15px 30px;
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background: url('../images/main.jpg') center / cover no-repeat;
+}
+
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( transparent 30%, rgba(20,25,28,.68) );
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+
+.hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+
+.hero-content h1 {
+    margin: 15px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(70px, 13vw, 130px);
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+.hero-year {
+    color: #e3d0a8;
+    letter-spacing: 8px;
+}
+/* =========================================
+   INVITATION SECTION
+   ========================================= */
+
+.invitation-section {
+    background: #f8f6f1;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.invitation-container {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #9b8762;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #303438;
+    margin: 0;
+}
+
+.gold-line {
+    width: 60px;
+    height: 1px;
+    background: #c6aa78;
+    margin: 25px auto 40px;
+}
+
+.invitation-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    color: #666b6f;
+    margin: 0 auto 18px;
+    max-width: 650px;
+}
+
+.invitation-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    line-height: 1.6;
+    font-style: italic;
+    color: #7c8790;
+    margin-top: 45px;
+}
+
+
+/* =========================================
+   EVENT SECTION
+   ========================================= */
+
+.event-section {
+    background: #303438;
+    padding: 120px 20px;
+    color: white;
+}
+
+.event-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.event-section .section-label {
+    color: #c6aa78;
+}
+
+.event-section .section-title {
+    color: #f8f6f1;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-top: 60px;
+}
+
+.event-item {
+    border: 1px solid rgba(198, 170, 120, 0.35);
+    padding: 40px 25px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+    .event-item:hover {
+        border-color: #c6aa78;
+        transform: translateY(-5px);
+    }
+
+.event-icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #c6aa78;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: #c6aa78;
+    margin-bottom: 25px;
+}
+
+.event-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #c6aa78;
+    margin-bottom: 12px;
+}
+
+.event-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 400;
+    color: #f8f6f1;
+    margin: 0 0 8px;
+}
+
+.event-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #b9bdc0;
+    margin: 0;
+}
+
+
+/* =========================================
+   MAP SECTION
+   ========================================= */
+
+.map-section {
+    background: #f8f6f1;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.map-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #666b6f;
+    margin: -15px auto 45px;
+}
+
+.map-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(48, 52, 56, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+    .map-wrapper iframe {
+        display: block;
+        width: 100%;
+        height: 450px;
+    }
+
+.map-button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 30px;
+    border: 1px solid #303438;
+    color: #303438;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+    .map-button:hover {
+        background: #303438;
+        color: #f8f6f1;
+    }
+
+/* =========================================
+   COUNTDOWN
+   ========================================= */
+
+.countdown-section {
+    background: #303438;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.countdown-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.countdown-section .section-label {
+    color: #c6aa78;
+}
+
+.countdown-section .section-title {
+    color: #f8f6f1;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 55px;
+}
+
+.countdown-item {
+    min-width: 120px;
+}
+
+    .countdown-item span {
+        display: block;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 64px;
+        font-weight: 400;
+        color: #f8f6f1;
+        line-height: 1;
+    }
+
+    .countdown-item small {
+        display: block;
+        margin-top: 12px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        letter-spacing: 3px;
+        color: #c6aa78;
+    }
+
+.countdown-separator {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: #c6aa78;
+    margin: 0 10px;
+    margin-bottom: 25px;
+}
+
+.countdown-note {
+    margin-top: 45px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #b9bdc0;
+}
+
+@media (max-width: 768px) {
+
+    .countdown {
+        gap: 0;
+    }
+
+    .countdown-item {
+        min-width: 65px;
+    }
+
+        .countdown-item span {
+            font-size: 38px;
+        }
+
+        .countdown-item small {
+            font-size: 7px;
+            letter-spacing: 1.5px;
+        }
+
+    .countdown-separator {
+        font-size: 25px;
+        margin: 0 3px;
+        margin-bottom: 20px;
+    }
+
+    .countdown-note {
+        font-size: 19px;
+    }
+}
+/* =========================================
+   GALLERY
+   ========================================= */
+
+.gallery-section {
+    background: #f8f6f1;
+    padding: 120px 20px;
+}
+
+.gallery-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallery-description {
+    max-width: 650px;
+    margin: -10px auto 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666b6f;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    gap: 15px;
+    text-align: left;
+}
+
+.gallery-item {
+    overflow: hidden;
+    background: #ddd;
+}
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.7s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.05);
+    }
+
+.gallery-large {
+    grid-row: span 2;
+}
+
+@media (max-width: 768px) {
+
+    .gallery-section {
+        padding: 80px 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+        gap: 8px;
+    }
+
+    .gallery-large {
+        grid-row: span 2;
+    }
+}
+/* =========================================
+   RSVP
+   ========================================= */
+
+.rsvp-section {
+    background: #303438;
+    padding: 120px 20px;
+}
+
+.rsvp-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rsvp-section .section-label {
+    color: #c6aa78;
+}
+
+.rsvp-section .section-title {
+    color: #f8f6f1;
+}
+
+.rsvp-intro {
+    max-width: 600px;
+    margin: -5px auto 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #b9bdc0;
+}
+
+
+/* FORM */
+
+.rsvp-form {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(198, 170, 120, 0.3);
+    padding: 45px;
+}
+
+
+/* FORM GROUP */
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #c6aa78;
+    }
+
+
+    /* INPUT */
+
+    .form-group input[type="text"],
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px 16px;
+        border: 1px solid rgba(248, 246, 241, 0.2);
+        background: rgba(255, 255, 255, 0.04);
+        color: #f8f6f1;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+
+        .form-group input[type="text"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #c6aa78;
+        }
+
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+
+    /* SELECT */
+
+    .form-group select option {
+        background: #303438;
+        color: #f8f6f1;
+    }
+
+
+/* ATTENDANCE */
+
+.attendance-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.attendance-option {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border: 1px solid rgba(248, 246, 241, 0.15);
+    cursor: pointer;
+    color: #d7d9da !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px !important;
+    letter-spacing: 0 !important;
+    transition: all 0.3s ease;
+}
+
+
+    .attendance-option:hover {
+        border-color: #c6aa78;
+    }
+
+
+    .attendance-option input {
+        accent-color: #c6aa78;
+    }
+
+
+/* BUTTON */
+
+.rsvp-button {
+    width: 100%;
+    padding: 17px 25px;
+    border: 1px solid #c6aa78;
+    background: #c6aa78;
+    color: #303438;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+    .rsvp-button:hover {
+        background: transparent;
+        color: #c6aa78;
+    }
+
+
+/* SUCCESS */
+
+.rsvp-success {
+    display: none;
+    margin-top: 35px;
+    padding: 35px;
+    border: 1px solid rgba(198, 170, 120, 0.4);
+    text-align: center;
+}
+
+
+    .rsvp-success.show {
+        display: block;
+    }
+
+
+.success-icon {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 20px;
+    border: 1px solid #c6aa78;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c6aa78;
+    font-size: 20px;
+}
+
+
+.rsvp-success h3 {
+    margin: 0 0 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #f8f6f1;
+}
+
+
+.rsvp-success p {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #b9bdc0;
+}
+
+@media (max-width: 768px) {
+
+    .rsvp-section {
+        padding: 80px 20px;
+    }
+
+    .rsvp-form {
+        padding: 30px 20px;
+    }
+
+    .rsvp-intro {
+        font-size: 13px;
+    }
+
+    .attendance-option {
+        padding: 13px;
+        font-size: 11px !important;
+    }
+
+    .rsvp-button {
+        padding: 16px;
+    }
+}
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.invitation-footer {
+    background: #24272a;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.footer-line {
+    width: 50px;
+    height: 1px;
+    background: #c6aa78;
+    margin: 0 auto 30px;
+}
+
+.footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: #f8f6f1;
+}
+
+.footer-year {
+    margin-top: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #c6aa78;
+}
+
+.footer-message {
+    margin: 25px 0 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #92979b;
+}
+
+.guest-name-display {
+    color: #c6aa78;
+    font-weight: 500;
+    position: relative;
+}
+/* =========================================================
+   BLUE MIST — LUXURY WATERCOLOUR THEME
+   ========================================================= */
+
+:root {
+    --paper: #f7f6f1;
+    --paper-soft: #fbfaf7;
+    --blue-deep: #526f82;
+    --blue: #7898aa;
+    --blue-soft: #a9c0cc;
+    --blue-pale: #dce8ed;
+    --ink: #34434d;
+    --ink-soft: #6d7c84;
+    --line: rgba(82, 111, 130, 0.28);
+    --line-light: rgba(82, 111, 130, 0.14);
+    --white: #ffffff;
+    --shadow-soft: 0 20px 60px rgba(61, 82, 94, 0.08);
+    --shadow-card: 0 15px 45px rgba(61, 82, 94, 0.12);
+}
+
+
+/* =========================================================
+   TOÀN BỘ TRANG
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    background: radial-gradient( circle at 10% 15%, rgba(169, 192, 204, 0.18), transparent 30% ), radial-gradient( circle at 90% 35%, rgba(120, 152, 170, 0.13), transparent 28% ), radial-gradient( circle at 40% 85%, rgba(220, 232, 237, 0.35), transparent 32% ), var(--paper);
+    line-height: 1.8;
+}
+
+
+    /* =========================================================
+   HIỆU ỨNG GIẤY MỸ THUẬT
+   ========================================================= */
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: .35;
+        background-image: radial-gradient( rgba(82, 111, 130, .08) 1px, transparent 1px );
+        background-size: 5px 5px;
+    }
+
+
+/* =========================================================
+   CÁC SECTION
+   ========================================================= */
+
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+.invitation-section,
+.event-section,
+.map-section,
+.countdown-section,
+.gallery-section,
+.rsvp-section {
+    background: transparent;
+}
+
+
+/* =========================================================
+   TIÊU ĐỀ CHUNG
+   ========================================================= */
+
+.section-label {
+    margin-bottom: 14px;
+    color: var(--blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+
+.section-title {
+    margin: 0;
+    color: var(--blue-deep);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -.5px;
+}
+
+
+.gold-line {
+    width: 55px;
+    height: 1px;
+    margin: 25px auto;
+    background: linear-gradient( 90deg, transparent, var(--blue), transparent );
+    opacity: .75;
+}
+
+
+/* =========================================================
+   KHUNG NỘI DUNG
+   ========================================================= */
+
+.invitation-container,
+.event-container,
+.map-container,
+.countdown-container,
+.gallery-container,
+.rsvp-container {
+    position: relative;
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+}
+
+
+    /* =========================================================
+   VIỀN TRANG TRÍ NHẸ
+   ========================================================= */
+
+    .invitation-container::before,
+    .event-container::before,
+    .map-container::before,
+    .countdown-container::before,
+    .gallery-container::before,
+    .rsvp-container::before {
+        content: "";
+        position: absolute;
+        top: 35px;
+        left: 0;
+        width: 45px;
+        height: 45px;
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+        pointer-events: none;
+    }
+
+
+    .invitation-container::after,
+    .event-container::after,
+    .map-container::after,
+    .countdown-container::after,
+    .gallery-container::after,
+    .rsvp-container::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 35px;
+        width: 45px;
+        height: 45px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        pointer-events: none;
+    }
+
+
+/* =========================================================
+   HIỆU ỨNG LOANG MÀU NƯỚC
+   ========================================================= */
+
+.invitation-section::before,
+.event-section::before,
+.gallery-section::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient( circle, rgba(169, 192, 204, .17), rgba(169, 192, 204, .07) 45%, transparent 70% );
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+
+.invitation-section::before {
+    top: -180px;
+    right: -180px;
+}
+
+
+.event-section::before {
+    bottom: -200px;
+    left: -200px;
+}
+
+
+.gallery-section::before {
+    top: 30%;
+    right: -250px;
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+p {
+    color: var(--ink-soft);
+    font-weight: 300;
+}
+
+
+.invitation-text,
+.gallery-description,
+.map-description,
+.countdown-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+}
+.invitation-text {
+    text-align: justify;
+    text-indent: 2em;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   LINK
+   ========================================================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BUTTON CHUNG
+   ========================================================= */
+
+button,
+.map-button,
+.rsvp-button {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 0;
+    letter-spacing: 2px;
+    transition: all .4s ease;
+}
+
+
+.map-button,
+.rsvp-button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 32px;
+    border: 1px solid var(--blue);
+    background: transparent;
+    color: var(--blue-deep);
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+    .map-button:hover,
+    .rsvp-button:hover {
+        background: var(--blue-deep);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(82, 111, 130, .18);
+    }
+
+
+/* =========================================================
+   ẢNH
+   ========================================================= */
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .invitation-container,
+    .event-container,
+    .map-container,
+    .countdown-container,
+    .gallery-container,
+    .rsvp-container {
+        width: calc(100% - 28px);
+    }
+
+    .section-title {
+        font-size: 44px;
+    }
+
+    .invitation-text,
+    .gallery-description,
+    .map-description,
+    .countdown-note {
+        font-size: 20px;
+    }
+
+    .invitation-container::before,
+    .event-container::before,
+    .map-container::before,
+    .countdown-container::before,
+    .gallery-container::before,
+    .rsvp-container::before {
+        width: 30px;
+        height: 30px;
+        top: 20px;
+    }
+
+    .invitation-container::after,
+    .event-container::after,
+    .map-container::after,
+    .countdown-container::after,
+    .gallery-container::after,
+    .rsvp-container::after {
+        width: 30px;
+        height: 30px;
+        right: 0;
+        bottom: 20px;
+    }
+}
+/* =========================================================
+   FINAL BLUE WATERCOLOR PAPER THEME
+   Override giao dien cu - xanh watercolor + giay + champagne
+   ========================================================= */
+:root {
+    --ivory: #FAF9F5;
+    --paper: #FAF9F5;
+    --water-blue: #8DBCE3;
+    --water-blue-light: #B9D7EE;
+    --water-blue-pale: #DCECF7;
+    --navy: #17212B;
+    --text: #263640;
+    --text-soft: #566872;
+    --champagne: #C9A85D;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #FAF9F5;
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+    /* Watercolor mảng rời, không phủ gradient toàn trang */
+    body::before {
+        content: "";
+        position: fixed;
+        z-index: -1;
+        pointer-events: none;
+        width: 520px;
+        height: 300px;
+        top: -90px;
+        left: -110px;
+        background: radial-gradient(ellipse at center, rgba(141,188,227,.72) 0%, rgba(141,188,227,.50) 35%, rgba(185,215,238,.25) 60%, transparent 76%);
+        filter: blur(12px);
+        transform: rotate(-8deg);
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        z-index: -1;
+        pointer-events: none;
+        width: 500px;
+        height: 280px;
+        right: -110px;
+        bottom: 8%;
+        background: radial-gradient(ellipse at center, rgba(185,215,238,.65) 0%, rgba(141,188,227,.35) 45%, transparent 76%);
+        filter: blur(15px);
+        transform: rotate(10deg);
+    }
+
+/* OPENING */
+#opening-screen {
+    background: #FAF9F5;
+    overflow: hidden;
+}
+
+    #opening-screen::before {
+        content: "";
+        position: absolute;
+        width: 650px;
+        height: 420px;
+        top: -130px;
+        left: -130px;
+        border-radius: 45% 55% 50% 40%;
+        background: radial-gradient(ellipse at center, rgba(141,188,227,.78) 0%, rgba(141,188,227,.52) 35%, rgba(185,215,238,.28) 60%, transparent 76%);
+        filter: blur(12px);
+        transform: rotate(-8deg);
+    }
+
+    #opening-screen::after {
+        content: "";
+        position: absolute;
+        width: 560px;
+        height: 350px;
+        right: -150px;
+        bottom: -120px;
+        border-radius: 55% 45% 40% 60%;
+        background: radial-gradient(ellipse at center, rgba(141,188,227,.60) 0%, rgba(185,215,238,.35) 48%, transparent 76%);
+        filter: blur(15px);
+        transform: rotate(12deg);
+    }
+
+.opening-content {
+    position: relative;
+    z-index: 2;
+    width: min(620px, calc(100% - 50px));
+    padding: 90px 50px;
+    text-align: center;
+    background: rgba(255,255,255,.72);
+    border: 1px solid var(--champagne);
+    box-shadow: 0 25px 80px rgba(57,83,101,.12);
+    backdrop-filter: blur(3px);
+}
+
+    .opening-content::before {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        width: auto;
+        height: auto;
+        top: 6px;
+        left: 6px;
+        border: 1px solid rgba(201,168,93,.30);
+        pointer-events: none;
+    }
+
+    .opening-content::after {
+        content: "";
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: 55px;
+        height: 55px;
+        border-right: 1px solid rgba(201,168,93,.65);
+        border-bottom: 1px solid rgba(201,168,93,.65);
+        pointer-events: none;
+    }
+
+.opening-subtitle {
+    color: #4B6F88;
+}
+
+.opening-name {
+    color: #111820;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+}
+
+.opening-line {
+    background: linear-gradient(90deg, transparent, var(--champagne), transparent);
+}
+
+.opening-year {
+    color: #455866;
+}
+
+.open-button {
+    z-index: 2;
+    border: 1px solid var(--champagne);
+    background: rgba(255,255,255,.45);
+    color: #17212B;
+    transition: color .4s ease, transform .4s ease, background .4s ease, box-shadow .4s ease;
+}
+
+    .open-button::before {
+        background: var(--champagne);
+    }
+
+    .open-button:hover {
+        color: white;
+        box-shadow: 0 8px 25px rgba(201,168,93,.20);
+    }
+
+/* HERO */
+.hero-overlay {
+    background: linear-gradient(transparent 25%, rgba(10,24,34,.60) 100%);
+}
+
+.hero-content h1 {
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+}
+
+.hero-year {
+    color: #E8D8AD;
+}
+
+/* SECTIONS SÁNG */
+.invitation-section, .map-section, .gallery-section {
+    background: #FAF9F5;
+}
+
+    .invitation-section::before,
+    .gallery-section::before {
+        content: "";
+        position: absolute;
+        width: 480px;
+        height: 300px;
+        top: -100px;
+        right: -120px;
+        background: radial-gradient(ellipse, rgba(141,188,227,.58), rgba(185,215,238,.25) 52%, transparent 75%);
+        filter: blur(14px);
+        transform: rotate(10deg);
+        pointer-events: none;
+    }
+
+    .invitation-section::after,
+    .gallery-section::after {
+        content: "";
+        position: absolute;
+        width: 420px;
+        height: 260px;
+        bottom: -100px;
+        left: -120px;
+        background: radial-gradient(ellipse, rgba(141,188,227,.45), rgba(185,215,238,.20) 52%, transparent 75%);
+        filter: blur(15px);
+        transform: rotate(-8deg);
+        pointer-events: none;
+    }
+
+.invitation-container, .gallery-container, .map-container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-label {
+    color: #527A95;
+    font-weight: 600;
+}
+
+.section-title {
+    color: #17212B;
+    font-weight: 500;
+}
+
+.gold-line {
+    background: linear-gradient(90deg, transparent, var(--champagne), transparent);
+}
+
+.invitation-text, .gallery-description, .map-description {
+    color: #334650;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.75;
+}
+
+.invitation-quote {
+    color: #527A95;
+}
+
+/* EVENT */
+.event-section {
+    background: #F5F8FA;
+    color: #17212B;
+}
+
+    .event-section .section-label {
+        color: #527A95;
+    }
+
+    .event-section .section-title {
+        color: #17212B;
+    }
+
+.event-item {
+    background: rgba(255,255,255,.62);
+    border: 1px solid rgba(82,126,155,.25);
+    box-shadow: 0 15px 45px rgba(57,83,101,.07);
+}
+
+    .event-item:hover {
+        border-color: var(--champagne);
+    }
+
+.event-icon {
+    border-color: var(--champagne);
+    color: var(--champagne);
+}
+
+.event-label {
+    color: #527A95;
+}
+
+.event-content h3 {
+    color: #17212B;
+}
+
+.event-content p {
+    color: #62737D;
+}
+
+/* MAP */
+.map-wrapper {
+    border-color: rgba(82,126,155,.20);
+    box-shadow: 0 20px 50px rgba(57,83,101,.09);
+}
+
+.map-button {
+    border-color: var(--champagne);
+    color: #17212B;
+}
+
+    .map-button:hover {
+        background: var(--champagne);
+        color: #fff;
+    }
+
+/* COUNTDOWN */
+.countdown-section {
+    background: #EEF5F8;
+    color: #17212B;
+}
+
+    .countdown-section .section-label {
+        color: #527A95;
+    }
+
+    .countdown-section .section-title {
+        color: #17212B;
+    }
+
+.countdown-item span {
+    color: #17212B;
+}
+
+.countdown-item small, .countdown-separator {
+    color: #527A95;
+}
+
+.countdown-note {
+    color: #566872;
+}
+
+/* GALLERY */
+.gallery-item {
+    background: #fff;
+    border: 8px solid #fff;
+    box-shadow: 0 12px 35px rgba(57,83,101,.13);
+}
+
+    .gallery-item img {
+        transition: transform .8s cubic-bezier(.22,.61,.36,1), filter .5s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.06);
+        filter: saturate(1.05);
+    }
+
+/* RSVP */
+.rsvp-section {
+    background: #F0F6F9;
+}
+
+    .rsvp-section .section-label {
+        color: #527A95;
+    }
+
+    .rsvp-section .section-title {
+        color: #17212B;
+    }
+
+.rsvp-intro {
+    color: #566872;
+}
+
+.rsvp-form {
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(82,126,155,.20);
+    box-shadow: 0 20px 60px rgba(57,83,101,.08);
+}
+
+.form-group label {
+    color: #527A95;
+}
+
+.form-group input[type="text"], .form-group select, .form-group textarea {
+    border-color: rgba(82,126,155,.25);
+    background: rgba(255,255,255,.70);
+    color: #17212B;
+}
+
+    .form-group input[type="text"]::placeholder, .form-group textarea::placeholder {
+        color: #94A2AA;
+    }
+
+    .form-group input[type="text"]:focus, .form-group select:focus, .form-group textarea:focus {
+        border-color: var(--champagne);
+        box-shadow: 0 0 0 2px rgba(201,168,93,.08);
+    }
+
+    .form-group select option {
+        background: #fff;
+        color: #17212B;
+    }
+
+.attendance-option {
+    border-color: rgba(82,126,155,.20);
+    color: #455866 !important;
+}
+
+    .attendance-option:hover {
+        border-color: var(--champagne);
+    }
+
+    .attendance-option input {
+        accent-color: var(--champagne);
+    }
+
+.rsvp-button {
+    border-color: var(--champagne);
+    background: var(--champagne);
+    color: #fff;
+}
+
+    .rsvp-button:hover {
+        background: #B8944B;
+        color: #fff;
+    }
+
+.rsvp-success {
+    border-color: rgba(201,168,93,.45);
+}
+
+.success-icon {
+    border-color: var(--champagne);
+    color: var(--champagne);
+}
+
+.rsvp-success h3 {
+    color: #17212B;
+}
+
+.rsvp-success p {
+    color: #566872;
+}
+
+/* GUEST */
+.guest-name-display {
+    color: #527A95;
+    font-weight: 600;
+}
+
+/* FOOTER */
+.invitation-footer {
+    background: #EAF2F6;
+    border-top: 1px solid rgba(82,126,155,.15);
+}
+
+.footer-line {
+    background: var(--champagne);
+}
+
+.footer-title {
+    color: #17212B;
+}
+
+.footer-year {
+    color: #527A95;
+}
+
+.footer-message {
+    color: #62737D;
+}
+
+/* GÓC KHUNG */
+.invitation-container::before, .event-container::before, .map-container::before,
+.countdown-container::before, .gallery-container::before, .rsvp-container::before {
+    border-top-color: rgba(201,168,93,.45);
+    border-left-color: rgba(201,168,93,.45);
+}
+
+.invitation-container::after, .event-container::after, .map-container::after,
+.countdown-container::after, .gallery-container::after, .rsvp-container::after {
+    border-right-color: rgba(201,168,93,.45);
+    border-bottom-color: rgba(201,168,93,.45);
+}
+
+@media (max-width: 600px) {
+    .opening-content {
+        width: calc(100% - 34px);
+        padding: 70px 25px;
+    }
+
+    .opening-name {
+        font-size: 64px;
+    }
+
+    .section-title {
+        font-size: 44px;
+    }
+
+    .invitation-text, .gallery-description, .map-description {
+        font-size: 20px;
+    }
+}
+
+/* ===================================================== FIX TOÀN BỘ FONT SỐ - THÔNG TIN BUỔI LỄ 01 / 02 / 03 20.09.2026 08:00 ===================================================== */ /* ---------- SỐ 01 / 02 / 03 ---------- */
+
+.event-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid #C9A85D !important;
+    background: transparent !important;
+    color: #C9A85D !important; /* Font hệ thống, chắc chắn hiển thị số */
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    font-variant-numeric: lining-nums !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* ---------- NGÀY: 20.09.2026 ---------- */ /* ---------- GIỜ: 08:00 ---------- */ /* ---------- ĐỊA ĐIỂM ---------- */
+
+.event-content h3 { /* Không dùng font trang trí cho số */
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 30px !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    color: #17212B !important;
+    margin: 0 0 8px !important; /* Ép trình duyệt dùng dạng số chuẩn */
+    font-variant-numeric: lining-nums !important;
+    -webkit-font-feature-settings: "lnum";
+    font-feature-settings: "lnum";
+}
+/* ---------- CHỮ "CHỦ NHẬT", "BUỔI SÁNG"... ---------- */
+
+.event-content p {
+    font-family: "Montserrat", Arial, sans-serif !important;
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+    color: #455866 !important;
+    margin: 0 !important;
+}
+/* ---------- NHÃN NGÀY / THỜI GIAN / ĐỊA ĐIỂM ---------- */
+
+.event-label {
+    font-family: "Montserrat", Arial, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: 3px !important;
+    color: #527A95 !important;
+}
+/* ===================================================== MOBILE ===================================================== */
+
+@media (max-width: 600px) {
+    .event-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 18px !important;
+    }
+
+    .event-content h3 {
+        font-size: 25px !important;
+    }
+
+    .event-content p {
+        font-size: 16px !important;
+    }
+
+    .event-label {
+        font-size: 10px !important;
+    }
+}
+/* ========================================================= COUNTDOWN — LUXURY EDITORIAL ========================================================= */ .countdown-section {
+    position: relative;
+    background: #FAF9F5 !important;
+    overflow: hidden;
+}
+/* Khung nội dung */
+
+.countdown-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 110px 30px 115px;
+    text-align: center;
+}
+/* Tiêu đề */
+
+.countdown-section .section-label {
+    font-family: "Montserrat", Arial, sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    letter-spacing: 4px !important;
+    color: #527A95 !important;
+    margin-bottom: 18px !important;
+}
+
+.countdown-section .section-title {
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: 44px !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+    color: #17212B !important;
+    margin-bottom: 22px !important;
+}
+/* Đường vàng */
+
+.countdown-section .gold-line {
+    width: 55px !important;
+    height: 1px !important;
+    margin: 0 auto 55px !important;
+    background: #C9A85D !important;
+}
+/* ========================================================= COUNTDOWN NUMBERS ========================================================= */
+
+.countdown {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    margin: 0 auto 45px !important;
+    max-width: 900px;
+}
+/* Từng cụm */
+
+.countdown-item {
+    min-width: 150px;
+    text-align: center;
+}
+    /* SỐ */
+
+    .countdown-item span {
+        display: block !important; /* Dùng font hệ thống ổn định. Không dùng font-feature để tránh lỗi số. */
+        font-family: "Times New Roman", Times, serif !important;
+        font-size: 72px !important;
+        font-weight: 400 !important;
+        font-style: normal !important;
+        line-height: 0.95 !important;
+        letter-spacing: 1px !important;
+        color: #17212B !important;
+        margin: 0 0 14px !important;
+        font-variant: normal !important;
+        font-feature-settings: normal !important;
+        -webkit-font-feature-settings: normal !important;
+        text-shadow: none !important;
+    }
+    /* NGÀY / GIỜ / PHÚT / GIÂY */
+
+    .countdown-item small {
+        display: block !important;
+        font-family: "Montserrat", Arial, sans-serif !important;
+        font-size: 9px !important;
+        font-weight: 500 !important;
+        letter-spacing: 3px !important;
+        color: #527A95 !important;
+        line-height: 1 !important;
+    }
+/* DẤU : */
+
+.countdown-separator {
+    display: block !important;
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: 48px !important;
+    font-weight: 400 !important;
+    line-height: 0.95 !important;
+    color: #C9A85D !important;
+    margin: 0 5px !important;
+    padding: 0 !important;
+    font-variant: normal !important;
+    font-feature-settings: normal !important;
+    -webkit-font-feature-settings: normal !important;
+    text-shadow: none !important;
+}
+/* ========================================================== ĐẾM NGƯỢC ========================================================= */
+
+.countdown-note {
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: 21px !important;
+    font-weight: 400 !important;
+    font-style: italic !important;
+    color: #455866 !important;
+    letter-spacing: 0.3px !important;
+    margin: 0 !important;
+}
+/* ========================================================= TRANG TRÍ — màu nước nhạt ========================================================= */
+
+.countdown-section::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 180px;
+    left: -100px;
+    top: 30px;
+    background: #DCECF7;
+    border-radius: 45% 55% 60% 40%;
+    transform: rotate(-12deg);
+    opacity: 0.65;
+    filter: blur(1px);
+    z-index: 0;
+}
+
+.countdown-section::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 170px;
+    right: -90px;
+    bottom: 20px;
+    background: #B9D7EE;
+    border-radius: 60% 40% 45% 55%;
+    transform: rotate(14deg);
+    opacity: 0.45;
+    filter: blur(2px);
+    z-index: 0;
+}
+/* ========================================================== MÁY TÍNH BẢNG ========================================================= */
+
+/* =========================================================
+   ALBUM - CUỘN PHIM
+   ========================================================= */
+
+/* Khung chứa toàn bộ cuộn phim */
+.film-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+    padding: 25px 0 30px;
+    user-select: none; /* Tránh bôi đen chữ/ảnh khi kéo chuột */
+}
+
+    /* Ẩn thanh scrollbar trên Chrome / Edge / Safari */
+    .film-viewport::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Khi đang kéo */
+    .film-viewport.dragging {
+        cursor: grabbing;
+    }
+
+/* =========================================================
+   DẢI PHIM
+   ========================================================= */
+.film-track {
+    display: flex;
+    width: max-content;
+    padding: 0 8vw;
+}
+
+/* =========================================================
+   TỪNG KHUNG ẢNH
+   ========================================================= */
+.film-frame {
+    position: relative;
+    flex: 0 0 300px;
+    height: 285px;
+    background: linear-gradient(180deg, #26333b 0%, #172127 100%);
+    border-top: 2px solid #303d44;
+    border-bottom: 2px solid #303d44;
+    box-shadow: 0 15px 30px rgba(24, 42, 52, 0.14);
+}
+
+    /* Đường nối giữa các khung */
+    .film-frame + .film-frame {
+        border-left: 1px solid #111a1f;
+    }
+
+/* =========================================================
+   ẢNH
+   ========================================================= */
+.film-photo {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    top: 42px;
+    bottom: 42px;
+    overflow: hidden;
+    background: #111;
+    border: 2px solid #10191e;
+}
+
+    /* Hình ảnh bên trong */
+    .film-photo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        pointer-events: none; /* Tránh đè sự kiện kéo của chuột */
+        transition: transform 0.7s ease, filter 0.7s ease;
+    }
+
+/* Hiệu ứng khi rê chuột */
+.film-frame:hover .film-photo img {
+    transform: scale(1.045);
+    filter: brightness(1.05);
+}
+
+/* =========================================================
+   SỐ THỨ TỰ ẢNH
+   ========================================================= */
+.film-number {
+    position: absolute;
+    right: 8px;
+    bottom: 5px;
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* =========================================================
+   LỖ CUỘN PHIM - PHÍA TRÊN & DƯỚI
+   ========================================================= */
+.film-frame::before,
+.film-frame::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background-image: repeating-linear-gradient( 90deg, transparent 0, transparent 12px, #faf9f5 12px, #faf9f5 37px, transparent 37px, transparent 49px );
+    background-repeat: repeat-x;
+}
+
+.film-frame::before {
+    top: 10px;
+}
+
+.film-frame::after {
+    bottom: 10px;
+}
+
+/* =========================================================
+   HƯỚNG DẪN KÉO
+   ========================================================= */
+.film-guide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #89939a;
+}
+
+.film-arrow {
+    color: #b18d4a;
+    font-size: 16px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media (max-width: 600px) {
+    .film-track {
+        padding: 0 11vw;
+    }
+
+    .film-frame {
+        flex: 0 0 78vw;
+        height: 270px;
+    }
+
+    .film-photo {
+        left: 20px;
+        right: 20px;
+        top: 40px;
+        bottom: 40px;
+    }
+
+    .film-guide {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+}
+
+.countdown-item span {
+    font-size: 43px !important;
+    letter-spacing: 0 !important;
+    margin-bottom: 11px !important;
+}
+
+.countdown-item small {
+    font-size: 7px !important;
+    letter-spacing: 1.8px !important;
+}
+
+.countdown-separator {
+    font-size: 28px !important;
+    margin: 0 1px !important;
+}
+
+.countdown-note {
+    font-size: 19px !important;
+    margin-top: 10px !important;
+}
+/* ========================================================= COUNTDOWN — FINAL VISUAL ADJUSTMENT LỚN HƠN + KHÔI PHỤC MÀU LOANG ========================================================= */ .countdown-section {
+    position: relative !important;
+    overflow: hidden !important;
+    background: #FAF9F5 !important;
+}
+    /* ========================================================= CÁC MẢNG MÀU LOANG ========================================================= */ /* Mảng xanh lớn bên trái */
+
+    .countdown-section::before {
+        content: "";
+        position: absolute;
+        width: 430px;
+        height: 260px;
+        left: -150px;
+        top: 20px;
+        background: #8DBCE3;
+        border-radius: 58% 42% 63% 37% / 45% 60% 40% 55%;
+        transform: rotate(-13deg);
+        opacity: 0.48;
+        filter: blur(8px);
+        z-index: 0;
+    }
+    /* Mảng xanh bên phải */
+
+    .countdown-section::after {
+        content: "";
+        position: absolute;
+        width: 390px;
+        height: 250px;
+        right: -130px;
+        bottom: 10px;
+        background: #B9D7EE;
+        border-radius: 42% 58% 37% 63% / 60% 42% 58% 40%;
+        transform: rotate(15deg);
+        opacity: 0.65;
+        filter: blur(7px);
+        z-index: 0;
+    }
+/* Nội dung nằm trên watercolor */
+
+.countdown-container {
+    position: relative !important;
+    z-index: 2 !important;
+}
+/* ========================================================= SỐ COUNTDOWN — TO HƠN ========================================================= */
+
+.countdown-item span {
+    font-size: 82px !important;
+    line-height: 0.92 !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 16px !important;
+}
+/* Dấu : cũng lớn hơn một chút */
+
+.countdown-separator {
+    font-size: 52px !important;
+    margin-left: 7px !important;
+    margin-right: 7px !important;
+}
+/* ========================================================= MOBILE ========================================================= */
+
+@media (max-width: 900px) {
+    .countdown-item span {
+        font-size: 70px !important;
+    }
+
+    .countdown-separator {
+        font-size: 45px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .countdown-item span {
+        font-size: 50px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .countdown-separator {
+        font-size: 31px !important;
+        margin-left: 1px !important;
+        margin-right: 1px !important;
+    }
+}
+/* =========================================
+   BỎ TOÀN BỘ VIỀN GÓC VUÔNG TRANG TRÍ
+   ========================================= */
+
+.invitation-container::before,
+.invitation-container::after,
+.event-container::before,
+.event-container::after,
+.map-container::before,
+.map-container::after,
+.countdown-container::before,
+.countdown-container::after,
+.gallery-container::before,
+.gallery-container::after,
+.rsvp-container::before,
+.rsvp-container::after {
+    display: none !important;
+}
+/* ========================================================= LƯU BÚT ========================================================= */ .guestbook-section {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 20px 120px;
+    background: #f7f6f1;
+}
+/* Trang giấy bên trong */
+
+.guestbook-container {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 65px 70px 70px;
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(179, 141, 74, 0.20);
+    box-shadow: 0 20px 60px rgba(38, 58, 73, 0.07);
+}
+    /* Trang trí góc */
+
+    .guestbook-container::before {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        width: 55px;
+        height: 55px;
+        border-top: 1px solid #c9a85d;
+        border-left: 1px solid #c9a85d;
+        opacity: 0.45;
+    }
+
+    .guestbook-container::after {
+        content: "";
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: 55px;
+        height: 55px;
+        border-right: 1px solid #c9a85d;
+        border-bottom: 1px solid #c9a85d;
+        opacity: 0.45;
+    }
+/* ========================================================= TIÊU ĐỀ ========================================================= */
+
+.guestbook-section .section-label {
+    text-align: center;
+    margin-bottom: 13px;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #a3864a;
+}
+
+.guestbook-title {
+    margin: 0;
+    text-align: center;
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: #263a49;
+}
+
+.guestbook-section .gold-line {
+    width: 55px;
+    height: 1px;
+    margin: 18px auto 42px;
+    background: linear-gradient( 90deg, transparent, #c9a85d, transparent );
+}
+/* ========================================================= NỘI DUNG ========================================================= */
+
+.guestbook-content {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+    .guestbook-content p {
+        margin: 0 0 28px;
+        font-family: "Times New Roman", Georgia, serif;
+        font-size: 17px;
+        line-height: 2;
+        text-align: left;
+        color: #53616b;
+    }
+    /* Đoạn cuối */
+
+    .guestbook-content .guestbook-ending {
+        margin-top: 38px;
+        margin-bottom: 0;
+        padding-top: 32px;
+        border-top: 1px solid rgba(179, 141, 74, 0.25);
+        text-align: center;
+        font-size: 17px;
+        font-style: italic;
+        color: #344b5b;
+    }
+/* ========================================================= CHỮ KÝ ========================================================= */
+
+.guestbook-signature {
+    margin-top: 45px;
+    text-align: center;
+}
+
+    .guestbook-signature span {
+        display: block;
+        margin-bottom: 5px;
+        font-family: "Times New Roman", Georgia, serif;
+        font-size: 14px;
+        font-style: italic;
+        color: #8a949a;
+    }
+
+    .guestbook-signature strong {
+        display: block;
+        font-family: "Times New Roman", Georgia, serif;
+        font-size: 23px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        color: #a3864a;
+    }
+/* ========================================================= MOBILE ========================================================= */
+
+@media (max-width: 600px) {
+    .guestbook-section {
+        padding: 75px 18px 85px;
+    }
+
+    .guestbook-container {
+        padding: 50px 28px 55px;
+    }
+
+        .guestbook-container::before {
+            top: 12px;
+            left: 12px;
+            width: 38px;
+            height: 38px;
+        }
+
+        .guestbook-container::after {
+            right: 12px;
+            bottom: 12px;
+            width: 38px;
+            height: 38px;
+        }
+
+    .guestbook-title {
+        font-size: 30px;
+    }
+
+    .guestbook-section .gold-line {
+        margin-bottom: 32px;
+    }
+
+    .guestbook-content p {
+        font-size: 15px;
+        line-height: 1.9;
+        margin-bottom: 24px;
+    }
+
+    .guestbook-content .guestbook-ending {
+        font-size: 16px;
+        margin-top: 32px;
+        padding-top: 26px;
+    }
+
+    .guestbook-signature {
+        margin-top: 38px;
+    }
+}
+/* Khung chứa các đoạn văn */
+.guestbook-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: justify; /* Căn đều 2 bên giúp phần thụt đầu dòng nhìn rõ và đẹp mắt nhất */
+}
+
+    /* Ép thẻ p hiển thị dạng khối & thụt đầu dòng */
+    .guestbook-content p {
+        display: block;
+        margin: 0;
+        line-height: 1.6;
+        text-indent: 30px; /* Độ khoảng cách thụt vào đầu dòng (có thể chỉnh thành 2em hoặc 20px tùy ý) */
+    }
+
+/* Phần chữ ký riêng không thụt đầu dòng */
+.guestbook-signature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    text-indent: 0; /* Reset về mặc định cho chữ ký */
+}
+/* =========================================================
+   PHÁO HOA GIẤY - CONFETTI
+   MÀU XANH / TRẮNG / VÀNG ÁNH KIM
+   ========================================================= */
+
+#confetti-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+
+/* Một mảnh giấy */
+
+.confetti {
+    position: absolute;
+    top: -20px;
+    width: 7px;
+    height: 12px;
+    opacity: 0;
+    transform: rotate(0deg);
+    animation: confettiFall linear forwards;
+}
+
+
+/* Màu xanh */
+
+.confetti-blue {
+    background: #8dbbd8;
+}
+
+
+/* Màu trắng */
+
+.confetti-white {
+    background: #ffffff;
+    box-shadow: 0 0 4px rgba(255,255,255,0.8);
+}
+
+
+/* Vàng ánh kim */
+
+.confetti-gold {
+    background: linear-gradient( 135deg, #f8e7a8, #c9a84f, #fff2b8, #b88a2d );
+    box-shadow: 0 0 6px rgba(201,168,79,0.55);
+}
+
+
+/* Hiệu ứng rơi */
+
+@keyframes confettiFall {
+
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0) rotate(0deg);
+    }
+
+
+    10% {
+        opacity: 1;
+    }
+
+
+    50% {
+        opacity: 0.95;
+        transform: translate3d( var(--sway), 50vh, 0 ) rotate( var(--rotation) );
+    }
+
+
+    100% {
+        opacity: 0;
+        transform: translate3d( calc(var(--sway) * -0.5), 110vh, 0 ) rotate( calc(var(--rotation) * 2) );
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .confetti {
+        width: 5px;
+        height: 9px;
+    }
+}
+/* =========================================
+   MOBILE - 3 CỘT CĂN THẲNG HÀNG VÀ CÂN BẰNG
+   ========================================= */
+@media (max-width: 600px) {
+
+    .event-container {
+        width: 100%;
+        padding-left: 6px;
+        padding-right: 6px;
+        box-sizing: border-box;
+    }
+
+    .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* ĐÃ SỬA: Dùng Padding top/bottom cố định để đẩy đều từ trên xuống */
+    .event-item {
+        width: 100%;
+        height: 100%;
+        /* 24px trên/dưới giúp căn giữa tổng thể nhưng vẫn giữ đỉnh bằng nhau */
+        padding: 24px 4px 16px 4px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Giữ đỉnh các ô xuất phát cùng 1 vị trí */
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+
+    /* Icon 01, 02, 03 luôn nằm trên 1 đường thẳng ngang */
+    .event-icon {
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        font-size: 11px;
+        margin-bottom: 8px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .event-content {
+        width: 100%;
+    }
+
+    /* Nhãn NGÀY, THỜI GIAN, ĐỊA ĐIỂM nằm thẳng hàng ngang */
+    .event-label {
+        font-size: 8px !important;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    /* Tiêu đề chính */
+    .event-content h3 {
+        font-size: clamp(10px, 2.7vw, 12px) !important;
+        line-height: 1.25;
+        margin: 0 0 4px 0;
+        font-weight: 700;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* Tiêu đề phụ */
+    .event-content p {
+        font-size: clamp(8px, 2.2vw, 10px) !important;
+        line-height: 1.2;
+        margin: 0;
+        opacity: 0.85;
+    }
+}
+    /* ========================= COUNTDOWN ========================= */
+
+    .countdown-container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .countdown {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .countdown-item {
+        flex: 1 1 0;
+        min-width: 0;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+        .countdown-item span {
+            display: block;
+            font-size: clamp(24px, 8vw, 32px);
+            line-height: 1.1;
+            white-space: nowrap;
+        }
+
+        .countdown-item small {
+            display: block;
+            font-size: 10px;
+            margin-top: 5px;
+            white-space: nowrap;
+        }
+
+    .countdown-separator {
+        flex: 0 0 auto;
+        font-size: 22px;
+        margin: 0 2px;
+        padding-bottom: 15px;
+    }
+
+    .countdown-note {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
